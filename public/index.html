@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+
+      :root {
+      --orange:         #E8670A;
+      --orange-light:   #F28130;
+      --orange-glow:    rgba(232, 103, 10, 0.18);
+
+      --bg:             #1A1208;
+      --bg-card:        #221608;
+      --bg-input:       #2C1D0A;
+      --bg-input-focus: rgba(44, 29, 10, 0.85);
+
+      --border:         rgba(232, 103, 10, 0.22);
+      --border-hover:   rgba(232, 103, 10, 0.40);
+      --border-focus:   rgba(232, 103, 10, 0.70);
+
+      --text-primary:   #F5DEC0;
+      --text-muted:     #9B7A52;
+      --text-label:     #D4935A;
+
+      --success-bg:     rgba(30, 80, 30, 0.30);
+      --success-border: rgba(80, 180, 80, 0.35);
+      --success-text:   #7DD87D;
+
+      --error-bg:       rgba(80, 20, 20, 0.35);
+      --error-border:   rgba(200, 60, 60, 0.35);
+      --error-text:     #F08080;
+
+      --radius-sm: 8px;
+      --radius-lg: 16px;
+      --ease:      0.2s ease;
+      }
+
+      *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      }
+
+      html, body {
+      min-height: 100%;
+      background: var(--bg);
+      }
+
+      body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+      font-family: system-ui, -apple-system, sans-serif;
+      color: var(--text-primary);
+      }
+
+      .form-container {
+      background: var(--bg-card);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      width: 100%;
+      max-width: 500px;
+      }
+
+      .form-container h2 {
+      font-size: 25px;
+      font-weight: 500;
+      color: var(--text-primary);
+      text-align: center;
+      letter-spacing: 0.01em;
+      }
+      .form-container p{
+        text-align: center;
+        margin-bottom: 20px;
+        color: var(--text-label);
+        margin-top: 0;
+        font-size: 13px;
+      }
+
+      .form-group {
+      margin-bottom: 1.2rem;
+      }
+
+      .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-label);
+      margin-bottom: 6px;
+      letter-spacing: 0.02em;
+      }
+
+      .form-group input[type="text"],
+      .form-group input[type="email"],
+      .form-group textarea {
+      width: 100%;
+      background: var(--bg-input);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 11px 14px;
+      color: var(--text-primary);
+      font-size: 15px;
+      font-family: inherit;
+      outline: none;
+      transition:
+        border-color var(--ease),
+        box-shadow   var(--ease),
+        background   var(--ease);
+      resize: none;
+      }
+
+      .form-group input::placeholder,
+      .form-group textarea::placeholder {
+      color: var(--text-muted);
+      font-size: 14px;
+      }
+
+      .form-group input:hover,
+      .form-group textarea:hover {
+      border-color: var(--border-hover);
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 3px var(--orange-glow);
+      background: var(--bg-input-focus);
+      }
+
+      #submitBtn {
+      display: block;
+      width: 100%;
+      margin-top: 1.5rem;
+      padding: 13px;
+      background: var(--orange);
+      border: none;
+      border-radius: var(--radius-sm);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background var(--ease), transform 0.1s;
+      }
+
+      #submitBtn:hover  { background: var(--orange-light); }
+      #submitBtn:active { transform: scale(0.98); }
+
+      #submitBtn:disabled {
+      background: #5A3A18;
+      color: var(--text-muted);
+      cursor: not-allowed;
+      transform: none;
+      }
+
+      #status-message {
+      margin-top: 1rem;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      text-align: center;
+      display: none;
+      }
+
+      #status-message.success {
+      display: block;
+      background: var(--success-bg);
+      border: 0.5px solid var(--success-border);
+      color: var(--success-text);
+      }
+
+      #status-message.error {
+      display: block;
+      background: var(--error-bg);
+      border: 0.5px solid var(--error-border);
+      color: var(--error-text);
+      }
+
+      @media (max-width: 480px) {
+      .form-container {
+        padding: 1.75rem 1.1rem;
+        border-radius: 12px;
+      }
+      .form-container h2 { font-size: 19px; }
+      #submitBtn { font-size: 14px; padding: 11px; }
+      }
+
+      @media (max-width: 360px) {
+      body { padding: 1rem 0.5rem; }
+      .form-container h2 { font-size: 17px; }
+      }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Send Message</h2>
+    <p class="form-subtitle">We'll get back to you within 24 hours</p>
+    <form id="contactForm">
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Enter your name" required minlength="2">
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="Enter your Email" required>
+        </div>
+        <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" placeholder="Enter the Subject of Email" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" placeholder="Message..." required minlength="10"></textarea>
+        </div>
+        
+        <button type="submit" id="submitBtn">Send Message</button>
+        <div id="status-message"></div>
+    </form>
+</div>
+
+<script>
+    document.getElementById('contactForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const submitBtn = document.getElementById('submitBtn');
+        const statusMsg = document.getElementById('status-message');
+        
+        submitBtn.disabled = true;
+        submitBtn.innerText = 'Sending...';
+        statusMsg.className = '';
+        statusMsg.style.display = 'none';
+
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            subject: document.getElementById('subject').value,
+            message: document.getElementById('message').value
+        };
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                statusMsg.innerText = 'Message sent successfully!';
+                statusMsg.className = 'success';
+                statusMsg.style.display = 'block';
+                document.getElementById('contactForm').reset();
+            } else {
+                throw new Error(result.error || 'Submission failed.');
+            }
+        } catch (error) {
+            statusMsg.innerText = error.message;
+            statusMsg.className = 'error';
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerText = 'Send Message';
+        }
+    });
+</script>
+</body>
+</html>
